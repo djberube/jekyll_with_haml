@@ -1,16 +1,19 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{jekyll}
-  s.version = "0.5.2"
+  s.name = %q{jekyll_with_haml}
+
+	require 'yaml'	
+	version_yaml = YAML.load(File.read('VERSION.yml'))	
+  s.version = [version_yaml[:major], version_yaml[:minor], version_yaml[:patch]].join('.')	
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Tom Preston-Werner", "Henrik Nyh"]
+  s.authors = ["Tom Preston-Werner", "Henrik Nyh", "David Berube"]
   s.date = %q{2009-04-27}
-  s.default_executable = %q{jekyll}
+  s.default_executable = %q{jekyllh}
   s.description = %q{Jekyll is a simple, blog aware, static site generator.}
   s.email = %q{tom@mojombo.com}
-  s.executables = ["jekyll"]
+  s.executables = ["jekyllh"]
   s.extra_rdoc_files = [
     "README.textile"
   ]
@@ -19,7 +22,7 @@ Gem::Specification.new do |s|
     "README.textile",
     "Rakefile",
     "VERSION.yml",
-    "bin/jekyll",
+    "bin/jekyllh",
     "lib/jekyll.rb",
     "lib/jekyll/albino.rb",
     "lib/jekyll/converters/csv.rb",
